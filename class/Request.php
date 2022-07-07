@@ -68,6 +68,14 @@ return $result;
 		return $this->getRows($sql, [$owners_id, $request_is_done]);
 	}
 
+	public function request_remove($rid)
+	{	
+		$sql = "DELETE FROM tbl_request
+				WHERE req_id = ?;
+		";
+		return $this->deleteRow($sql, [$rid]);
+	}
+
 	public function request_done($item_id)
 	{
 		//update item

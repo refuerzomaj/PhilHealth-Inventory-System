@@ -578,16 +578,10 @@ function all_request_to_admin()
 all_request_to_admin();
 
 //request_action
-var action = '';
 var request_id = '';
-var item_id = '';
-var req_type = '';
 
-function request_action(action_choice, rid, iid, r_type){
-	action = action_choice;
+function request_remove( rid){
 	request_id = rid;
-	item_id = iid;
-	req_type = r_type;
 	$('#modal-request-action').modal('show');
 }
 
@@ -598,12 +592,10 @@ $('#confirm-action').click(function(event) {
 			type: 'post',
 			// dataType: 'json',
 			data: {
-				action : action,
-				req_id : request_id,
-				item_id : item_id,
-				req_type : req_type
+				req_id : request_id
 			},
 			success: function (data) {
+				alert(data);
 				console.log(data);
 				$('#modal-request-action').modal('hide');
 				all_request_to_admin();	
