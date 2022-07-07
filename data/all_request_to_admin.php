@@ -54,7 +54,10 @@ $results = $request->all_request_from_admin();
 			<td><?= $r['off_desc']?></td>
  			<td>
  				<center>
- 					<button onclick="request_update('2', '<?= $id; ?>', '<?= $iid; ?>', '<?= $req_type; ?>')" type="button" class="btn btn-success btn-sm">Accept <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+ 					<button onclick="request_done( '<?= $id; ?>', '<?= $iid; ?>', '<?= $r['off_desc']; ?>' , '<?= $req_done; ?>')" type="button" class="btn btn-success btn-sm">
+					    Accept <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+				    </button>
+
  					<button type="button" class="btn btn-danger btn-sm" onclick="request_remove('<?php echo $id; ?>')">
 						Reject <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 					</button>

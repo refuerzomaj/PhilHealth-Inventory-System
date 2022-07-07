@@ -76,30 +76,30 @@ return $result;
 		return $this->deleteRow($sql, [$rid]);
 	}
 
-	public function request_done($item_id)
+	public function request_done($req_id)
 	{
 		//update item
 		//update request
 
-		$status = 4;/// 4 is the default id for item that has not request
+		//$status = 4;/// 4 is the default id for item that has not request
 		$request_is_done = 1;//done para dili na siya ma view sa owners current request
 
 		//update item
-		$sql = "UPDATE tbl_item
+		/*$sql = "UPDATE tbl_item
 				SET status_id= ?
 				WHERE item_id = ?;
-		";
+		";*/
 
 		$sql2 = "UPDATE tbl_request
 				 SET req_is_done = ?
-				 WHERE item_id = ?
+				 WHERE req_id = ?
 		";
 
 		$return;
 		try {
 			$this->Begin();
-				$this->updateRow($sql, [$status, $item_id]);
-				$this->updateRow($sql2, [$request_is_done, $item_id]);
+				//$this->updateRow($sql, [$status, $item_id]);
+				$this->updateRow($sql2, [$request_is_done, $req_id]);
 			$this->Commit();
 			$return = true;
 		} catch (Exception $e) {

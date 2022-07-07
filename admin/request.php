@@ -1,7 +1,8 @@
 <?php 
 include_once('../data/admin_session.php');//check if naay session otherwise e return sa login
 include_once('../include/header.php'); ?>
-<?php include_once('../include/banner.php'); ?>
+<?php include_once('../include/banner.php'); 
+?>
 
   <nav class="navbar navbar-inverse" style="margin-top:-18px;">
   	<div class="container-fluid">
