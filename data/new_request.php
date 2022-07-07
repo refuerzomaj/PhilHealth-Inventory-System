@@ -10,11 +10,11 @@ if(isset($_POST['data'])){
 	$a = $data[3];
 
 	$result['valid'] = $request->new_request($pDate, $a, $iID, $eID);
-	echo json_encode($result);
+	
 	if($result['valid']){
 		$result['msg'] = "Request Added Successfully!";
 		$result['action'] = "Add Data";
-		echo json_encode($result['msg']);
+		echo json_encode($result);
 	}
 }
 

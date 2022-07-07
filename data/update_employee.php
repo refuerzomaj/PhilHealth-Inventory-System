@@ -8,10 +8,9 @@ if(isset($_POST['data'])){
 	$lN = $data[2];
 	$pos = $data[3];
 	$off = $data[4];
-	$type = $data[5];
-	$eid = $data[6];
+	$eid = $data[5];
 
-	$result['valid'] = $employee->update_employee($fN, $mN, $lN, $pos, $off, $type, $eid);
+	$result['valid'] = $employee->update_employee($fN, $mN, $lN, $pos, $off, $eid);
 	if($result['valid']){
 		$result['msg'] = "Employee Updated Successfully!";
 		echo json_encode($result);	

@@ -75,23 +75,23 @@ $account_types = $employee->employee_account_types();
 					    </div>
 					  </div>
 
-					    <div class="form-group">
+					    <!--<div class="form-group">
 					    <label class="control-label col-sm-3" for="update-type">Account Type:</label>
 					    <div class="col-sm-9">
 					      <select class="btn btn-default" id="update-type">
 					      	<?php 
-					      		foreach ($account_types as $ac) {
+					      		/*foreach ($account_types as $ac) {
 					      			# code...
 					      			$type_id = $ac['type_id'];
-					      			$type_desc = $ac['type_desc'];
+					      			$type_desc = $ac['type_desc'];*/
 					      	?>
-					      		<option value="<?php echo $type_id; ?>"><?php echo $type_desc; ?></option>
+					      		<option value="<?php //echo $type_id; ?>"><?php //echo $type_desc; ?></option>
 					      	<?php		
-					      		}//end foreach
+					      		//}//end foreach
 					      	 ?>
 					      </select>
 					    </div>
-					  </div>
+					  </div>-->
 
 					  <div class="form-group"> 
 					    <div class="col-sm-offset-2 col-sm-10">

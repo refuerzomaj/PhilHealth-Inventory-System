@@ -25,6 +25,8 @@ $employees = $employee->get_employees(true);
 				$off = $emp['off_desc'];
 				$work_here = $emp['emp_at_deped'];
 				$emp_id = $emp['emp_id'];
+
+				if($emp_id == 49){continue;}
 		?>
 			<tr>
 				<td <?php echo $work_here ? 'class="text-success"':'class="text-danger"'; ?> 

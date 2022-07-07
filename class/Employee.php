@@ -18,7 +18,7 @@ class Employee extends Database implements iEmployee {
 		}
 	}
 
-	public function insert_employee($fN, $mN, $lN, $off, $type)
+	public function insert_employee($fN, $mN, $lN, $off)
 	{
 		$un = $fN.'_'.$lN;
 		$pass = $fN.'_'.$lN; $pass = md5($pass);
@@ -29,16 +29,16 @@ class Employee extends Database implements iEmployee {
 				(emp_fname, emp_mname, emp_lname, off_id, type_id, emp_un, emp_pass)
 				VALUES(?, ?, ?, ?, ?, ?, ?);
 				";
-		return $this->insertRow($sql, [$fN, $mN, $lN, $off, $type, $un, $pass]);
+		return $this->insertRow($sql, [$fN, $mN, $lN, $off, 2, $un, $pass]);
 	}
 
-	public function update_employee($fN, $mN, $lN, $off, $type, $eid)
+	public function update_employee($fN, $mN, $lN, $off, $eid)
 	{
 		$sql = "UPDATE tbl_employee
-				SET emp_fname = ?, emp_mname = ?, emp_lname = ?, off_id = ?, type_id = ?
+				SET emp_fname = ?, emp_mname = ?, emp_lname = ?, off_id = ?
 				WHERE emp_id = ?;
 		";
-		return $this->updateRow($sql, [$fN, $mN, $lN, $off, $type, $eid]);
+		return $this->updateRow($sql, [$fN, $mN, $lN, $off, $eid]);
 	}
 
 	public function get_employee($emp_id)

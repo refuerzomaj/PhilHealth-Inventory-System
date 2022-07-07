@@ -22,7 +22,7 @@ $allItem = $item->get_all_items();
 					    <label class="control-label col-sm-3" for="empID-req">Employee:</label>
 					    <div class="col-sm-9"> 
 					    	<select class="btn btn-default" id="empID-req">
-					    		
+							<option value="">Choose</option>
 								<?php 
 									foreach ($employees as $empployee) {
 										# code..
@@ -49,6 +49,7 @@ $allItem = $item->get_all_items();
 					    <label class="control-label col-sm-3" for="iID-req">Item Name:</label>
 					    <div class="col-sm-3"> 
 					    	<select name="" class="btn btn-default" id="iID-req">
+							<option value="">Choose</option>
 					    		<?php 
 					    			foreach ($allItem as $i) {
 					    				# code...

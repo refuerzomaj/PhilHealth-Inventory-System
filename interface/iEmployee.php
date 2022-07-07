@@ -1,8 +1,8 @@
  <?php 
 interface iEmployee{
 	public function my_session_start();
-	public function insert_employee($fN, $mN, $lN, $off, $type);
-	public function update_employee($fN, $mN, $lN, $off, $type, $eid);
+	public function insert_employee($fN, $mN, $lN, $off);
+	public function update_employee($fN, $mN, $lN, $off, $eid);
 	public function get_employee($emp_id);
 	public function get_employees($inner_joined = false);
 	//public function employee_positions();

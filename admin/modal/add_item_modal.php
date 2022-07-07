@@ -19,8 +19,9 @@ $categories = $item->item_categories();
 					<form class="form-horizontal" role="form" id="add-item-form">
 					<div class="form-group">
 					    <label class="control-label col-sm-3" for="catID">Category:</label>
-					    <div class="col-sm-3"> 
+					    <div class="col-sm-3">
 					    	<select name="" class="btn btn-default" id="catID">
+								<option value="">Choose</option>
 					    		<?php 
 					    			foreach ($categories as $category) {
 					    				# code...
@@ -103,7 +104,7 @@ $categories = $item->item_categories();
 					    <label class="control-label col-sm-3" for="empID">Employee:</label>
 					    <div class="col-sm-9"> 
 					    	<select class="btn btn-default" id="empID">
-					    		
+							<option value="">Choose</option>
 								<?php 
 									foreach ($employees as $empployee) {
 										# code..

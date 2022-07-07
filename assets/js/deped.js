@@ -231,8 +231,7 @@ $(document).on('submit', '#add-employee-form', function(event) {
 								$('input[id=fN]'), 
 								$('input[id=mN]'), 
 								$('input[id=lN]'),
-								$('#office'),
-								$('#type')
+								$('#office')
 							);
 	var data = new Array(form_data.length);
 
@@ -246,7 +245,7 @@ $(document).on('submit', '#add-employee-form', function(event) {
 		}
 	}
 
-	if(validate == '01234'){
+	if(validate == '0123'){
 		$.ajax({
 				url: '../data/add_employee.php',
 				type: 'post',
@@ -263,8 +262,8 @@ $(document).on('submit', '#add-employee-form', function(event) {
 
 					}
 				},
-				error: function (){
-					alert('Error: L235+');
+				error: function(request,status,error){
+					alert(request.responseText);
 				}
 			});
 	}
@@ -451,14 +450,13 @@ function edit_employee_fill(eid){
 					$('#update-mN').val(data.emp_mname);
 					$('#update-lN').val(data.emp_lname);
 					$('#update-office').val(data.off_id);
-					$('#update-type').val(data.type_id);
 
 					$('#update-eid').val(eid);
 
 				}
 			},
-			error: function(){
-				alert('Error: L434+ update employee');
+			error: function(request,status,error){
+				alert(request.responseText);
 			}
 		});
 }
@@ -471,8 +469,7 @@ $(document).on('submit', '#update-employee-form', function(event) {
 									$('#update-fN'),	
 									$('#update-mN'),	
 									$('#update-lN'),		
-									$('#update-office'),	
-									$('#update-type'),
+									$('#update-office'),
 									$('#update-eid')
 								);
 
@@ -488,7 +485,7 @@ $(document).on('submit', '#update-employee-form', function(event) {
 	}
 
 
-	if(validate == "012345"){
+	if(validate == "01234"){
 		$.ajax({
 				url: '../data/update_employee.php',
 				type: 'post',
@@ -503,8 +500,8 @@ $(document).on('submit', '#update-employee-form', function(event) {
 						$('#"modal-message-box').find('.modal-body').text(data.msg);
 					}
 				},
-				error: function(){
-					alert('Error: L485+ update_employee');
+				error: function(request,status,error){
+					alert(request.responseText);
 				}
 			});
 	}
