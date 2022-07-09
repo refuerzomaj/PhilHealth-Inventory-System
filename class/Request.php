@@ -76,37 +76,72 @@ return $result;
 		return $this->deleteRow($sql, [$rid]);
 	}
 
-	public function request_done($req_id)
+	public function request_done($req_id, $item_id, $off_desc, $amount)
 	{
 		//update item
 		//update request
 
 		//$status = 4;/// 4 is the default id for item that has not request
 		$request_is_done = 1;//done para dili na siya ma view sa owners current request
-
+		$sql = "";
 		//update item
-		/*$sql = "UPDATE tbl_item
-				SET status_id= ?
-				WHERE item_id = ?;
-		";*/
+		switch($off_desc){
+			case "OM":
+				echo"<h1>OM</h1>";
+				$sql = "UPDATE tbl_item, tbl_request
+				        SET tbl_item.om_amount = ?,
+						tbl_request.req_is_done = ?
+						WHERE tbl_item.item_id = ?
+						AND tbl_request.req_id = ?";
+				break;
+			case "ISMD":
+				echo"<h1>ISMD</h1>";
+				$sql = "UPDATE tbl_item, tbl_request
+				        SET tbl_item.ismd_amount = ?,
+						tbl_request.req_is_done = ?
+						WHERE tbl_item.item_id = ?
+						AND tbl_request.req_id = ?";
+				break;
+			case "ITRMD":
+				echo"<h1>ITRMD</h1>";
+				$sql = "UPDATE tbl_item, tbl_request
+				        SET tbl_item.itrmd_amount = ?,
+						tbl_request.req_is_done = ?
+						WHERE tbl_item.item_id = ?
+						AND tbl_request.req_id = ?";
+				break;
+			case "IPPSD":
+				echo"<h1>IPPSD</h1>";
+				$sql = "UPDATE tbl_item, tbl_request
+				        SET tbl_item.ippsd_amount = ?,
+						tbl_request.req_is_done = ?
+						WHERE tbl_item.item_id = ?
+						AND tbl_request.req_id = ?";
+				break;
+			default:
+		}
+		// $sql2 = "UPDATE tbl_request
+		// 		 SET req_is_done = ?
+		// 		 WHERE req_id = ?
+		// ";
 
-		$sql2 = "UPDATE tbl_request
-				 SET req_is_done = ?
-				 WHERE req_id = ?
-		";
-
-		$return;
-		try {
-			$this->Begin();
-				//$this->updateRow($sql, [$status, $item_id]);
-				$this->updateRow($sql2, [$request_is_done, $req_id]);
-			$this->Commit();
-			$return = true;
-		} catch (Exception $e) {
-			$return = false;
-		}//end tryCatch
+		// $return;
+		// echo"<h1>'$amount'</h1>";
+		// echo"<h1>'$item_id'</h1>";
+		return $this->updateRow($sql,[$amount, $request_is_done, $item_id, $req_id]);
 		
-		return $return;
+		// try {
+		// 	$this->Begin();
+		// 		$this->updateRow($sql, [$amount, $item_id]);
+		// 		$this->updateRow($sql2, [$request_is_done, $req_id]);
+		// 	$this->Commit();
+		// 	$return = true;
+		// } catch (Exception $e) {
+		// 	$return = false;
+		// }//end tryCatch
+		
+		// // $result = $this->transInsert($sql, [$amount,$item_id], $sql2, [$request_is_done,$req_id]);
+		//  return $result;
 	}
 
 	public function all_request_from_admin()

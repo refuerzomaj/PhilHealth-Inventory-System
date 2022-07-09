@@ -33,7 +33,11 @@ include_once('../include/header.php'); ?>
         </li>
 
   	    <li>
-          <a href="report.php"><span class="glyphicon glyphicon-list-alt"></span> Report</a>
+          <a href="report.php"><span class="glyphicon glyphicon-list"></span> Item Report</a>
+        </li>
+
+        <li>
+          <a href="request-report.php"><span class="glyphicon glyphicon-list-alt"></span> Request Report</a>
         </li>
   	  </ul>
   	   <ul class="nav navbar-nav navbar-right">
