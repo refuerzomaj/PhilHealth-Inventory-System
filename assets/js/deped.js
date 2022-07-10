@@ -614,7 +614,7 @@ function request_done(req_id, item_id, off_desc, am) {
 	item_ID = item_id;
 	office_desc = off_desc;
 	amount = am;
-	alert();
+	//alert();
 	$.ajax({
 		url: '../data/confirm_done.php',
 		type: 'post',
@@ -641,7 +641,7 @@ function request_done(req_id, item_id, off_desc, am) {
 
 $('#accept-request-action').click(function (event) {
 	/* Act on the event */
-	alert();
+	//alert();
 	$.ajax({
 		url: '../data/confirm_done.php',
 		type: 'post',

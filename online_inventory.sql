@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2022 at 02:21 AM
+-- Generation Time: Jul 10, 2022 at 03:10 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -37,8 +37,11 @@ CREATE TABLE `tbl_cat` (
 --
 
 INSERT INTO `tbl_cat` (`cat_id`, `cat_desc`) VALUES
-(1, 'Equipment'),
-(2, 'Furniture And Fixture');
+(1, 'Reqular Office Supplies Expenses'),
+(2, 'IT Supplies'),
+(3, 'Office Equipment Expenses'),
+(4, 'Semi-Expendable Furniture and Fixtures'),
+(5, 'Other Supplies and Materials');
 
 -- --------------------------------------------------------
 
@@ -64,9 +67,10 @@ CREATE TABLE `tbl_employee` (
 
 INSERT INTO `tbl_employee` (`emp_id`, `emp_fname`, `emp_mname`, `emp_lname`, `off_id`, `emp_un`, `emp_pass`, `type_id`, `emp_at_deped`) VALUES
 (49, 'PhilHealth', '', 'Admin', 1, 'Admin', '21232f297a57a5a743894a0e4a801fc3', 2, 1),
-(54, 'Jam', 'R', 'Gabitanan', 11, 'Jam_Gabitanan', '36ab7f023ce43afb47f27dc0bf467647', 2, 1),
+(54, 'Jam', 'R', 'Gabitanan', 11, 'Jam_Gabitanan', '36ab7f023ce43afb47f27dc0bf467647', 2, 0),
 (59, 'Princess', 'R', 'Gabitanan', 10, 'Princess_Gabitanan', '0a6683496afa5b7a16e0bb5cd8f171e5', 2, 0),
-(60, 'Princess', 'R', 'Gabitanan', 12, 'Princess_Gabitanan', '0a6683496afa5b7a16e0bb5cd8f171e5', 2, 1);
+(60, 'Princess', 'R', 'Gabitanan', 12, 'Princess_Gabitanan', '0a6683496afa5b7a16e0bb5cd8f171e5', 2, 1),
+(61, 'Jam', 'R', 'Gabitanan', 10, 'Jam_Gabitanan', '36ab7f023ce43afb47f27dc0bf467647', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -111,7 +115,10 @@ CREATE TABLE `tbl_item` (
 --
 
 INSERT INTO `tbl_item` (`item_id`, `item_name`, `om_amount`, `ismd_amount`, `itrmd_amount`, `ippsd_amount`, `item_purdate`, `emp_id`, `cat_id`, `status_id`) VALUES
-(34, 'Calculator', 10, 10, 10, 10, '2022-07-07', 49, 1, 4);
+(34, 'ADAPTOR: Adaptor, HDMI to VGA', 0, 10, 10, 10, '2022-07-07', 49, 1, 4),
+(35, 'ART PAPER: assorted color, 10pcs/pack', 100, 100, 90, 100, '2022-07-09', 49, 1, 4),
+(38, 'Cart: Push Cart;', 100, 100, 100, 100, '2022-07-09', 49, 3, 4),
+(39, 'HARDWARE SUPPLY: Drill Bit', 10, 10, 10, 10, '2022-07-09', 49, 5, 4);
 
 -- --------------------------------------------------------
 
@@ -176,7 +183,8 @@ CREATE TABLE `tbl_request` (
 --
 
 INSERT INTO `tbl_request` (`req_id`, `req_date`, `item_id`, `emp_id`, `amount`, `req_is_done`) VALUES
-(92, '2022-07-07', 34, 54, 1, 2);
+(113, '2022-07-10', 35, 60, 10, 1),
+(114, '2022-07-10', 34, 61, 10, 1);
 
 --
 -- Indexes for dumped tables
@@ -238,13 +246,13 @@ ALTER TABLE `tbl_request`
 -- AUTO_INCREMENT for table `tbl_cat`
 --
 ALTER TABLE `tbl_cat`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_employee`
 --
 ALTER TABLE `tbl_employee`
-  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `tbl_emp_type`
@@ -256,7 +264,7 @@ ALTER TABLE `tbl_emp_type`
 -- AUTO_INCREMENT for table `tbl_item`
 --
 ALTER TABLE `tbl_item`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `tbl_item_status`
@@ -274,7 +282,7 @@ ALTER TABLE `tbl_off`
 -- AUTO_INCREMENT for table `tbl_request`
 --
 ALTER TABLE `tbl_request`
-  MODIFY `req_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `req_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- Constraints for dumped tables
