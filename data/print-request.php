@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-require_once('../class/Item.php');
+require_once('../class/Request.php');
 if(isset($_GET['choice'])){
     $choice = $_GET['choice'];
 
-    $reports = $item->item_report("all");
+    $reports = $request->all_request_list($choice);
     // echo '<pre>';
     //  print_r($reports);
     // echo '</pre>';
@@ -32,7 +32,7 @@ if(isset($_GET['choice'])){
 
 
 <center>
-    <h2>PhilHealth Item Inventory</h2>
+    <h2>PhilHealth Request List</h2>
     <h3>as of</h3>
     <h3><?= date('m-d-Y'); ?></h3>
 </center>
@@ -42,38 +42,29 @@ if(isset($_GET['choice'])){
        <table id="myTable-report" class="table table-bordered table-hover" cellspacing="0" width="100%">
        <thead>
 	    <tr>
-		<th><center>Particulars</center></th>
-			<th colspan="4"><center>Quantity</center></th>
-			<th><center>Total</center></th>
+	        <td>Employee</td>
+	        <td>Item Name</td>
+	        <td>Date</td>
+			<td>Quantity</td>
+			<td>Department</td>
+	        <!--<td>Request for</td>-->
+	        <!-- <th><center>Action</center></th> -->
 	    </tr>
 	</thead>
-    <tbody>
-	    <tr>
-			<td></td>
-			<td><strong>OM</strong></td>
-			<td><strong>ISMD</strong></td>
-			<td><strong>ITRMD</strong></td>
-			<td><strong>IPPSD</strong></td>
-			<td></td>
-		</tr>
+ 	<tbody>
     	<?php foreach($reports as $r): 
-    		$fN = $r['emp_fname'];
-    		$mN = $r['emp_mname'];
-    		$lN = $r['emp_lname'];
-    		//$mN = $mN[0];
-    		$fullName = "$fN $mN. $lN";
-    		$fullName = ucwords($fullName);
+    		$id = $r['req_id'];
+            $iid = $r['item_id'];
+           $req_done = $r['req_is_done'];
+           $off_desc = $r['off_desc'];
+           $am =$r['amount'];
     	?>
     		<tr>
-    			<td><?= $r['item_name']; ?></td>
-    			<td><?= $r['om_amount']; ?></td>
-				<td><?= $r['ismd_amount']; ?></td>
-				<td><?= $r['itrmd_amount']; ?></td>
-				<td><?= $r['ippsd_amount']; ?></td>
-				<?php
-				$total_amount = $r['om_amount']+$r['ismd_amount']+$r['itrmd_amount']+$r['ippsd_amount'];
-				?>
-    			<td><?php echo ucwords($total_amount); ?></td>
+ 			<td><?= $r['emp_fname'].' '.$r['emp_mname'].' '.$r['emp_lname'] ; ?></td>
+ 			<td><?= $r['item_name']; ?></td>
+ 			<td><?= $r['req_date']; ?></td>
+			<td><?= $r['amount'] ?></td>
+			<td><?= $off_desc?></td>
     		</tr>
     	<?php endforeach; ?>
     </tbody>

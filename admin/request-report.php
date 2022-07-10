@@ -1,7 +1,8 @@
 <?php 
 include_once('../data/admin_session.php');//check if naay session otherwise e return sa login
 include_once('../include/header.php'); ?>
-<?php include_once('../include/banner.php'); ?>
+<?php include_once('../include/banner.php'); 
+?>
 
   <nav class="navbar navbar-inverse" style="margin-top:-18px;">
   	<div class="container-fluid">
@@ -12,10 +13,11 @@ include_once('../include/header.php'); ?>
         </li>-->
      
   	    <li>
-          <a href="item.php"><span class="glyphicon glyphicon-object-align-vertical"></span> Item</a>
+          <a href="item.php"><span class="glyphicon glyphicon-object-align-vertical"></span> Item
+          </a>
         </li>
   	    
-  	    <li class="active">
+  	    <li>
           <a href="employee.php"><span class="glyphicon glyphicon-user"></span> Employee</a>
         </li>
 
@@ -35,12 +37,12 @@ include_once('../include/header.php'); ?>
           <a href="report.php"><span class="glyphicon glyphicon-list"></span> Item Report</a>
         </li>
 
-        <li>
+        <li class="active">
           <a href="request-report.php"><span class="glyphicon glyphicon-list-alt"></span> Request Report</a>
         </li>
         
   	  </ul>
-  	  <ul class="nav navbar-nav navbar-right">
+  	 <ul class="nav navbar-nav navbar-right">
          <li class="dropdown">
             <a class="dropdown-toggle" id="admin-account" data-toggle="dropdown" href="#">
             </a>
@@ -59,10 +61,19 @@ include_once('../include/header.php'); ?>
 
  			 	<div class="panel-heading">
         <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-        List of Employee</div>
+        All Requests List</div>
   	  			<div class="panel-body">
               <!-- main content -->
-              <div id="all_employee"></div>
+              <b>Filter:</b>
+                <select class="btn btn-default" id="request-report-choice">
+                  <option value="1">Accepted</option>
+                  <option value="2">Pending</option>
+                </select>
+              <button id="print-req-btn" type="button" class="btn btn-success">
+                PRINT
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+                </button>
+                <div id="request-report"></div>
               <!-- /main content -->
               <br />
   	  			</div>

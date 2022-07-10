@@ -1,7 +1,8 @@
 
-var valid = true;
+var valid = true; 
 var action = ''; document.getElementById("empID").style.display = "none";
 var action = ''; document.getElementById("empID-update").style.display = "none";
+//document.getElementById("report-choice").style.display = "none";
 /*
 	*naa ni siya add_item_modal.php
 	*form ni siya kung mag add og item
@@ -20,6 +21,7 @@ $(document).ready(function () {
 					data.logged +
 					'<span class="caret"></span>');
 				$('#change-username').val(data.logged_un);
+				$('#report-choice').hide();
 			} else {
 				alert('Account is Invalid!');
 			}
@@ -985,6 +987,25 @@ $(document).on('change', '#report-choice', function (event) {
 	});
 });
 
+$(document).on('change', '#request-report-choice', function (event) {
+	event.preventDefault();
+	/* Act on the event */
+	var choice = $('#request-report-choice').val();
+	$.ajax({
+		url: '../data/show_req_report.php',
+		type: 'post',
+		data: {
+			choice: choice
+		},
+		success: function (data) {
+			$('#request-report').html(data);
+		},
+		error: function () {
+			alert('Error: L825+');
+		}
+	});
+});
+
 function show_report() {
 	$.ajax({
 		url: '../data/show_report.php',
@@ -1006,4 +1027,27 @@ $('#print-btn').click(function (event) {
 	/* Act on the event */
 	var choice = $('#report-choice').val();
 	window.open('../data/print.php?choice=' + choice, 'name', 'width=600,height=400');
+});
+
+function show_req_report() {
+	$.ajax({
+		url: '../data/show_req_report.php',
+		type: 'post',
+		data: {
+			choice: '1'
+		},
+		success: function (data) {
+			$('#request-report').html(data);
+		},
+		error: function () {
+			alert('Error: L825+');
+		}
+	});
+}//end function show_report
+show_req_report();
+
+$('#print-req-btn').click(function (event) {
+	/* Act on the event */
+	var choice = $('#request-report-choice').val();
+	window.open('../data/print-request.php?choice=' + choice, 'name', 'width=600,height=400');
 });

@@ -32,9 +32,14 @@ include_once('../include/header.php'); ?>
           <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Request</a>
         </li>
 
-  	    <li class="active">
-          <a href="report.php"><span class="glyphicon glyphicon-list-alt"></span> Report</a>
+  	    <li>
+          <a href="report.php"><span class="glyphicon glyphicon-list"></span> Item Report</a>
         </li>
+
+        <li>
+          <a href="request-report.php"><span class="glyphicon glyphicon-list-alt"></span> Request Report</a>
+        </li>
+
   	  </ul>
   	 <ul class="nav navbar-nav navbar-right">
          <li class="dropdown">
@@ -58,12 +63,10 @@ include_once('../include/header.php'); ?>
         All Item Status Report</div>
   	  			<div class="panel-body">
               <!-- main content -->
-              <b>Filter:</b>
-                <select class="btn btn-default" id="report-choice">
+              <!-- <b>Filter:</b> -->
+                <!-- <select class="btn btn-default" id="report-choice">
                   <option value="all">All</option>
-                  <option value="working">Working</option>
-                  <option value="condemed">Condemed</option>
-                </select>
+                </select> -->
                 
                 <button id="print-btn" type="button" class="btn btn-success">
                 PRINT

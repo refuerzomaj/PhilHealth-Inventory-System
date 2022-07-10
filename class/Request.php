@@ -162,6 +162,24 @@ return $result;
 		return $result;
 	}
 
+	public function all_request_list($choice)
+	{
+		//display all pending request OR where req_status_id is pending
+		//$status_id = 1;//1 means pending pa siya
+		$sql = "SELECT * FROM tbl_request r 
+		INNER JOIN tbl_item i 
+		ON r.item_id = i.item_id 
+		INNER JOIN tbl_employee e 
+		ON r.emp_id = e.emp_id
+        INNER JOIN tbl_off o
+        ON e.off_id = o.off_id
+        WHERE req_is_done = '$choice'
+		ORDER BY r.req_id ;
+		";
+		$result = $this->getRows($sql);
+		return $result;
+	}
+
 	public function update_request($req_id, $status, $item_id, $req_type)
 	{
 		if($req_type == 'condemed'){

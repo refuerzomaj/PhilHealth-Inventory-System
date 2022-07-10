@@ -1,9 +1,9 @@
 <?php 
 require_once('../class/Item.php');
-if(isset($_POST['choice'])){
-	$choice = $_POST['choice'];
+// if(isset($_POST['choice'])){
+// 	$choice = $_POST['choice'];
 
-	$reports = $item->item_report($choice);
+	$reports = $item->item_report("all");
 	// echo '<pre>';
 	// 	print_r($reports);
 	// echo '</pre>';
@@ -69,5 +69,5 @@ if(isset($_POST['choice'])){
 <?php
 
 	// echo $choice;
-}//end isset
+// }//end isset
 
