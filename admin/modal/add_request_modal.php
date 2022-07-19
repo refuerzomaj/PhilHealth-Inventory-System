@@ -46,23 +46,74 @@ $allItem = $item->get_all_items();
 					  </div>
 
 					  <div class="form-group">
-					    <label class="control-label col-sm-3" for="iID-req">Item Name:</label>
-					    <div class="col-sm-3"> 
-					    	<select name="" class="btn btn-default" id="iID-req">
-							<option value="">Choose</option>
-					    		<?php 
+					    <label class="control-label col-sm-3" for="iID-req">Particular:</label>
+					    <div class="col-sm-9"> 
+						    <input type="text"  class="form-control" id="iiID-req" onkeyup="myFunction(); stoppedTyping();" placeholder="Enter Item Name" onkeyup="myFunction(); stoppedTyping();" autocomplete="off">
+					    	<input type="hidden" class="form-control" id="iID-req">
+							<ul id="myUL" style="list-style-type: none;display: list-item;position: fixed;">
+                                <?php 
 					    			foreach ($allItem as $i) {
 					    				# code...
 									$itemID = $i['item_id'];
 					    			$itemName = $i['item_name'];
+									?>
+										<li><button class="req_Btn" id="<?php echo $itemID;?>"value="<?php echo $itemName;?>"><?php echo $itemName;?></button></li>
+									<?php
+									}
 					    		?>
-					    			<option value="<?php echo $itemID; ?>"><?php echo $itemName; ?></option>}
+							</ul>
+							<!-- <select name="" class="btn btn-default" id="iID-req">
+							<option value="">Choose</option>
+					    		<?php 
+					    			//foreach ($allItem as $i) {
+					    				# code...
+									//$itemID = $i['item_id'];
+					    			//$itemName = $i['item_name'];
+					    		?>
+					    			<option value="<?php //echo $itemID; ?>"><?php //echo// $itemName; ?></option>}
 					    		<?php
-					    			}//end foreach of category
+					    			//}//end foreach of category
 					    		 ?>
-					    	</select>
+					    	</select> -->
 					    </div>
 					  </div>
+
+					  <script>
+						document.getElementById("myUL").style.display = "none";
+						
+						function myFunction() {
+                            var input, filter, ul, li, button, i, txtValue;
+    						input = document.getElementById("iiID-req");
+    						filter = input.value.toUpperCase();
+    						ul = document.getElementById("myUL");
+    						li = ul.getElementsByTagName("li");
+    						for (i = 0; i < li.length; i++) {
+     						    button = li[i].getElementsByTagName("button")[0];
+    						    txtValue = button.textContent || button.innerText;
+    						    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            						li[i].style.display = "";
+        						}else {
+            						li[i].style.display = "none";
+        						}
+    						}
+						}
+						function stoppedTyping(){
+                        var input = document.getElementById("iiID-req").value;
+                            if(input.length > 0) { 
+                                document.getElementById("myUL").style.display = "block"; 
+						    } else { 
+                                document.getElementById("myUL").style.display = "none";
+                            }
+                        }
+						$("#myUL .req_Btn").click(function(event) {
+                            var fired_button = $(this).val();
+							$("#iID-req").val(event.target.id);
+							$("#iiID-req").val(fired_button);
+							//alert(event.target.id);
+							//alert(fired_button);
+							document.getElementById("myUL").style.display = "none";
+                        });
+					  </script>
 
 					  <div class="form-group">
 					    <label class="control-label col-sm-3" for="a-req">Quantity:</label>
@@ -94,3 +145,6 @@ $allItem = $item->get_all_items();
 		</div>
 	</div>
 </div>
+<script>
+
+</script>

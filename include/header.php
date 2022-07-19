@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="../assets/css/bootstrap-theme.min.css"/>
+  <link rel="stylesheet" href="../assets/css/request_pop.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
   <link href="../assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
 </head>

@@ -1,0 +1,15 @@
+#myUL{
+    z-index: 2; 
+    text-decoration: none; 
+    border: 1px solid lightgray;
+    background-color: rgb(240, 240, 240);
+    width: 70%;
+}
+#myUL button{
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+#myUL button:hover{
+    background-color: grey;
+}
