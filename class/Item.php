@@ -55,7 +55,6 @@ class Item extends Database implements iItem{
 		$result = $this->getRow($sql, [$id]);
 		return $result;
 	}
-
 	public function get_all_items()
 	{
 		/*get all items with the office nga naa sa emp*/

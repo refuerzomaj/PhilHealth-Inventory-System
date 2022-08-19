@@ -54,7 +54,8 @@ class Employee extends Database implements iEmployee {
 					WHERE e.emp_id = ?
 					ORDER BY e.emp_fname;
 			";
-		return $this->getRow($sql, [$emp_id]);
+		$result = $this->getRow($sql, [$emp_id]);
+		return $result;
 	}
 
 	public function get_employees($inner_joined = false)
